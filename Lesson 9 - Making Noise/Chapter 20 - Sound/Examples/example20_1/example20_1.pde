@@ -1,18 +1,20 @@
-import processing.video.*;
+import processing.sound.*;
 
-Movie movie;
+SoundFile song;
 
 void setup() {
   size(200, 200);
-  movie = new Movie (this, " dingdong.wav " );
+  song = new SoundFile(this, "reflections_on_the_shore.mp3");
+  song.play();
 }
 
 void draw() {
-  background(0);
-  noLoop();
 }
 
 void mousePressed() {
-  movie.stop();
-  movie.play();
+  if (song.isPlaying()) {
+    song.pause();
+  } else {
+    song.play();
+  }
 }
